@@ -14,7 +14,8 @@ var mailOptions = {
 
 http.createServer(function (req, res) {
     transporter.sendMail(_.assign(mailOptions, { text: JSON.stringify(req) }), function(error, info){
-        res.writeHead(200, {'Content-Type': 'text/xml'});
+        res.writeHead(200, {'Content-Type': 'text'});
+        res.end("OK")
     });
 }).listen(1234);
 
